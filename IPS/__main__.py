@@ -9,6 +9,8 @@ import time
 import netifaces
 import click
 
+from IPS.oui import oui
+from IPS.colors import *
 
 if os.name != 'nt':
     from pick import pick
