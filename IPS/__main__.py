@@ -2,9 +2,12 @@ import threading
 import sys
 import os
 import platform
+import subprocess
 import json
 import time
 
+import netifaces
+import click
 
 
 if os.name != 'nt':
