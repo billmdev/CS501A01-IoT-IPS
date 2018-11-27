@@ -27,8 +27,19 @@ def which(program):
                 return exec_file
     raise
 
-#def showTimer(timeleft):
- #   """Shows a countdown timer for the device to sniff the waves"""
+def showTimer(timeleft):
+    """Shows a countdown timer for the device to sniff the signals"""
+    total = int(timeleft) * 10
+    for i in range(total):
+        sys.stdout.write('\r')
+        # the exact output we're looking at
+        timeleft_string = "%ds left" % int((total - i + 1) / 10)
+        if (total - i + 1) > 600:
+            timeleft_string = "%dmin %ds left" % (int((total - i + 1) / 600), int((total - i + 1) / 10 % 60))
+        sys.stdout.write("[%-50s] %d%% %15s" % ("=" * int(50.5 * i /total), 101 * i / total, timeleft_string))
+        sys.stdout.flush()
+        time.sleep(0.1)
+    print("")
 
 def fileToMacSetaddr(path):
     with open(path, 'r') as f:
@@ -38,6 +49,7 @@ def fileToMacSetaddr(path):
 @click.command()
 @click.option('-a', '--adapter', default='', help='adapter to use')
 @click.option('-z', '--analyze', default='', help='analyze file')
+@click.option('-s', '--scantime', default='60', help='time in seconds to scan')
 @click.option('-o' '--out', default='', help='output cellphone data to file')
 @click.option('-v', '--verbose', default='', help='verbose mode', is_flag=True)
 @click.option('--number', help='just print the number', is_flag=True)
