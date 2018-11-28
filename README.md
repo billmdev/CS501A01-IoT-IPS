@@ -4,7 +4,7 @@
 This is a little implementation software for the IoT course.
 Nowadays people are constantly using their phones at nearly all times. From this observation we realized that we could determine the number of people in a given room by developing a program that sniffs Wifi beacons in the air and tell us the number of devices(people) in a room.
 
-This program counts the number of people around you :family_man_woman_boy: by monitoring wifi signals :satellite:.
+This program counts the number of people around you :family_man_man_boy: by monitoring wifi signals :satellite:.
 
 It calculates the number of people in the vicinity using the approximate number of smartphones as a proxy (since [~65% of people have smartphones nowadays](https://twitter.com/conradhackett/status/701798230619590656)). 
 A cellphone is determined to be in proximity to the computer based on sniffing WiFi probe 
