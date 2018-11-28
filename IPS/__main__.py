@@ -163,7 +163,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
             foundMacs[mac].append(rssi)
     
     if not foundMacs:
-        print("Found no signals, are you sure %s supports monitor mode?" adapter)
+        print("Found no signals, are you sure %s supports monitor mode?" % adapter)
         return
     
     for key, value in foundMacs.items():
@@ -211,7 +211,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
         print(json.dumps(people_cellphone, indent=2))
     
     # US / Canada: https://twitter.com/conradhackett/status/701798230619590656
-    percentage_of_people_with_phones = 0.7
+    percentage_of_people_with_phones = 0.67
     if nocorrection:
         percentage_of_people_with_phones = 1
     num_people = int(round(len(cellphone_people) /
@@ -222,7 +222,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
     elif jsonprint:
         print(json.dumps(people_cellphone, indent=2))
     else:
-        if num_people == 0
+        if num_people == 0:
             print("No one around (not even you!).")
         elif num_people == 1:
             print("No one around, but you are there.")
