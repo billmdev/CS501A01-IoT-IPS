@@ -149,3 +149,12 @@ Type Ctl+C to exit
 ```
 
 Then just open up `index.html` in a browser and you should see plots.
+
+
+How does it work?
+==================
+
+It counts the number of probe requests coming from cellphones in a given amount of time.
+The probe requests can be "sniffed" from a monitor-mode enabled WiFi adapter using `tshark`. An acccurate count does depend on everyone having cellphone and also scanning long enough (1 - 10 minutes) to capture the packet when a phone pings the WiFi network (which happens every 1 to 10 minutes unless the phone is off or WiFi is disabled).
+
+This is a barebones program as it can be extended to add localization functionalities and show the positions of devices(people) visually on a map.
