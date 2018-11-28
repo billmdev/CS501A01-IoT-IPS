@@ -80,3 +80,72 @@ There are about 3 people around.
 
 You will be prompted for the WiFi adapter to use for scanning. Make sure to use
 an adapter that supports "monitor" mode.
+
+
+### Options
+
+You can modify the scan time, designate the adapter, or modify the output using some command-line options.
+```bash
+$ IPS --help
+
+Options:
+  -a, --adapter TEXT   adapter to use
+  -z, --analyze TEXT   analyze file
+  -s, --scantime TEXT  time in seconds to scan
+  -o, --out TEXT       output cellphone data to file
+  -v, --verbose        verbose mode
+  --number             just print the number
+  -j, --jsonprint      print JSON of cellphone data
+  -n, --nearby         only quantify signals that are nearby (rssi > -70)
+  --nocorrection       do not apply correction
+  --loop               loop forever
+  --sort               sort cellphone data by distance (rssi)
+```
+
+### Print JSON
+
+You can generate an JSON-formatted output to see what kind of phones are around:
+```bash
+$ IPS -o test.json -a wlan1
+[==================================================] 100%         0s left
+There are about 4 people around.
+$ cat test.json | python3 -m json.tool
+[
+  {
+    "rssi": -86.0,
+    "mac": "90:e7:c4:xx:xx:xx",
+    "company": "HTC Corporation"
+  },
+  {
+    "rssi": -84.0,
+    "mac": "80:e6:50:xx:xx:xx",
+    "company": "Apple, Inc."
+  },
+  {
+    "rssi": -49.0,
+    "mac": "ac:37:43:xx:xx:xx",
+    "company": "HTC Corporation"
+  }
+]
+```
+
+A higher rssi means closer devices to the raspberry. 
+
+### Run forever
+
+You can add `--loop` to make this run forever and append new lines an output file, `test.json`:
+```bash
+$ IPS -o test.json -a wlan1 --loop
+```
+
+### Visualize 
+
+You can visualize the output from a looped command via a browser using:
+```bash
+$ IPS --analyze test.json 
+Wrote index.html
+Open browser to http://localhost:8001
+Type Ctl+C to exit
+```
+
+Then just open up `index.html` in a browser and you should see plots.
