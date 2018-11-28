@@ -238,6 +238,6 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
     os.remove('tmp/tshark-temp')
     return adapter
 
-if if __name__ == "__main__":
+if __name__ == "__main__":
     main()
 
