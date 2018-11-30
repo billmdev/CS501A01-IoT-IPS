@@ -10,7 +10,7 @@ setup(
     description='A little tshark wrapper to count the number of cellphones in a particular limited area.',
     author='ghostbill',
     url='https://github.com/ghostbill/CS501A01-IoT-IPS',
-    author_email='billmorrissonjr@gmail.com'
+    author_email='billmorrissonjr@gmail.com',
     keywords=['tshark', 'wifi', 'location'],
     install_requires=[
         "click",
